@@ -25,7 +25,7 @@ SECRET_KEY = 'fry7hr^rar_i3mdh@@1d-9r45*4@599b9k$-4k$=u3j$kl004l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['gestao-pessoas-django.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
