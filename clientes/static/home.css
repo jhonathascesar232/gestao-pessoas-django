@@ -1,0 +1,38 @@
+ul{
+    position: relative;
+    background-color: gray;
+    margin: 0;
+    padding: 0;
+}
+
+ul li{
+    display: inline-block;
+}
+
+ul li a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    display: inline-block;
+    font-size: 20px;
+}
+
+ul li:hover{
+    background-color: lightgray;
+}
+
+ul ul{
+    position: absolute;
+    width: 300px;
+    display: none;
+    background-color: lightgray;
+}
+
+ul ul li{
+    display: block;
+    background-color: gray;
+}
+
+ul li:hover ul{
+    display: block;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Pessoas</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+    <div class="container border-bottom mb-5">
+        <h1 class="h1">Listar pessoas</h1>
+    </div>
+    <div class="container ">
+        <div class="row">
+            <div class="col-8">
+                <table class="table border">
+                    <thead></thead>
+                    <tbody>
+                        {% for p in pessoas %}
+                            <tr>
+                                <td>Nome:</td>
+                                <td>
+                                    <input type="text" readonly="true" value="{{ p.first_name }} {{ p.last_name }}" class="px-2 w-100">
+                                </td>
+                                <td>
+                                    <a href="{% url 'update_person' id=p.id%}" class="btn btn-secondary" role="button">
+                                       Editar
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{% url 'delete_person' id=p.id %}" class="btn btn-danger" role="button">
+                                       Deletar
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <a name="" id="" class="btn btn-primary" href="{% url 'person_new' %}" role="button">
+                    Novo Cliente
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="/logout/" class="btn btn-warning" role="button">Log Out</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    
+</body>
+</html>
