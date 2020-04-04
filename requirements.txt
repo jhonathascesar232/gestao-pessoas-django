@@ -1,5 +1,4 @@
 -r requirements-dev.txt
-django
 gunicorn
 django-heroku
 psycopg2
