@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECRET_KEY = config('SECRET_KEY')
-SECRET_KEY = 'jhon'
+
 
 
 
@@ -33,12 +33,14 @@ SECRET_KEY = 'jhon'
 # config. de localhost ou serverhost
 #
 if socket.gethostname() == "server_name":
+    SECRET_KEY = config('SECRET_KEY')
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = config('DEBUG', default=False,cast=bool)
 
     ALLOWED_HOSTS = ['gestao-pessoas-django.herokuapp.com',]
     
 else:
+    SECRET_KEY = 'w)9$@zixebcens28(4&7f066v+zr72b)joixxk1oy@3go$leek'
     DEBUG = True
     ALLOWED_HOSTS = ["localhost", "127.0.0.1",]
 
