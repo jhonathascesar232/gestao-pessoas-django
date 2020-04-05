@@ -9,10 +9,10 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
+import socket
 import os
 from decouple import config
-from dj_database_url import parse_as_dburl
+from dj_database_url import parse
 import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -23,13 +23,24 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False,cast=bool)
+# SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'jhon'
 
-ALLOWED_HOSTS = ['gestao-pessoas-django.herokuapp.com', '127.0.0.1']
 
+
+#
+# config. de localhost ou serverhost
+#
+if socket.gethostname() == "server_name":
+    # SECURITY WARNING: don't run with debug turned on in production!
+    DEBUG = config('DEBUG', default=False,cast=bool)
+
+    ALLOWED_HOSTS = ['gestao-pessoas-django.herokuapp.com',]
+    
+else:
+    DEBUG = True
+    ALLOWED_HOSTS = ["localhost", "127.0.0.1",]
 
 # Application definition
 
@@ -80,7 +91,7 @@ WSGI_APPLICATION = 'gestao_clientes.wsgi.application'
 
 default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
-DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
+DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=parse), }
 
 # DATABASES = {
 #     'default': {
