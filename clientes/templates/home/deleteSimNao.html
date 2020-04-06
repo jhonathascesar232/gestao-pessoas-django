@@ -1,18 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete(Y/N)</title>
-</head>
-<body>
-    <p>
-        Apagar <strong>{{pessoa.first_name}} </strong>
-    </p>
-    <form action="" method="POST">
-        {% csrf_token %}
-        
-        <input type="submit" value="Delete">
-    </form>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block titulo %} Deletar? {% endblock %}
+
+{% block main %}
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-3">Apagar {{pessoa.first_name}}</h1>
+            
+            <p class="lead">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    
+                    <input type="submit" class="btn btn-primary btn-lg" value="Delete">
+                </form>
+                
+            </p>
+        </div>
+    </div>
+
+{% endblock %}

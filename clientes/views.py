@@ -64,7 +64,7 @@ def delete(request, id):
     if request.method == 'POST':
         p.delete()
 
-        return redirect('/listar/')
+        return redirect('/clientes/listar/')
 
     else:
         data['pessoa'] = p
