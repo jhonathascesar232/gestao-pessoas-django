@@ -7,18 +7,10 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+    {% load bootstrap %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
 
-    <style>
-        div.form-group text,
-        div.form-group textarea,
-        div.form-group input{
-            width: 100%;
-            border-radius: 2%;
-            
-        }
-    </style>
 </head>
 <body>
 
@@ -33,7 +25,7 @@
                 <form action="" method="POST" enctype="multipart/form-data" class="form"> <!--para upload de files-->
                     {% csrf_token %}
                     <div class="form-group">
-                        {{ form.as_p }}
+                        {{ form|bootstrap }}
                     </div>
 
                     <div class="row">

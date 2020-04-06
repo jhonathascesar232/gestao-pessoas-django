@@ -9,6 +9,8 @@
 
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <script src="https://kit.fontawesome.com/c2d5e14140.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -31,13 +33,13 @@
                                         <input type="text" readonly="true" value="{{ p.first_name }} {{ p.last_name }}" class="px-2 w-100">
                                     </td>
                                     <td>
-                                        <a href="{% url 'update_person' id=p.id%}" class="btn btn-secondary" role="button">
-                                           Editar
+                                        <a href="{% url 'update_person' id=p.id%}" class="btn btn-secondary btn-lg" role="button" title="Editar">
+                                            <i class="fas fa-pen"></i>
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="{% url 'delete_person' id=p.id %}" class="btn btn-danger" role="button">
-                                           Deletar
+                                        <a href="{% url 'delete_person' id=p.id %}" class="btn btn-danger btn-lg" role="button">
+                                            <i class="fas fa-trash"></i>
                                         </a>
                                     </td>
                                 </tr>
@@ -55,11 +57,13 @@
                 <div class="col-6 d-flex justify-content-center">
                 
                     <a name="" id="" class="btn btn-primary btn-lg ml-4 d-flex justify-content-center align-items-center" href="{% url 'person_new' %}" role="button">
-                        Novo Cliente
+                        Novo Cliente<i class="fas fa-plus pl-2"></i>
                     </a>
                 </div>
                 <div class="col-6 d-flex justify-content-center">
-                    <a href="/logout/" class="btn btn-warning btn-lg d-flex justify-content-center align-items-center" role="button">Deslogar</a>
+                    <a href="/logout/" class="btn btn-warning btn-lg d-flex justify-content-center align-items-center" role="button">
+                        Deslogar<i class="fas fa-exit"></i>
+                    </a>
             
                 </div>
             

@@ -4,4 +4,5 @@ Pillow==7.0.0
 python-decouple==3.3
 pytz==2019.3
 static3==0.7.0
+django-bootstrap-form==3.4
 
