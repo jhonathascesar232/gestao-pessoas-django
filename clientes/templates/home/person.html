@@ -9,67 +9,80 @@
 
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'style-footer.css' %}">
 
     <script src="https://kit.fontawesome.com/c2d5e14140.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-    <div class="container border-bottom mb-5">
-        <h1 class="h1 my-3 text-center">Lista de Clientes</h1>
-    </div>
+    <div class="container">
 
-    <div class="container border- px-5 py-5">
-        <div class="row ">
-            <div class="col d-flex justify-content-center">
+        <div class="jumbotron">
 
-                <div class="">
-                    <table class="table border">
-                        <thead></thead>
-                        <tbody>
-                            {% for p in pessoas %}
-                                <tr>
-                                    <td>Nome:</td>
-                                    <td>
-                                        <input type="text" readonly="true" value="{{ p.first_name }} {{ p.last_name }}" class="px-2 w-100">
-                                    </td>
-                                    <td>
-                                        <a href="{% url 'update_person' id=p.id%}" class="btn btn-secondary btn-lg" role="button" title="Editar">
-                                            <i class="fas fa-pen"></i>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a href="{% url 'delete_person' id=p.id %}" class="btn btn-danger btn-lg" role="button">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                    
+            <div class="border-bottom mb-5">
+                <h1 class="h1 my-3 text-center">Lista de Clientes</h1>
+            </div>
+
+            <div class="border- px-5 py-5">
+                <div class="row ">
+                    <div class="col d-flex justify-content-center">
+
+                        <div class="">
+                            <table class="table border">
+                                <thead></thead>
+                                <tbody>
+                                    {% for p in pessoas %}
+                                        <tr>
+                                            <td>Nome:</td>
+                                            <td>
+                                                <input type="text" readonly="true" value="{{ p.first_name }} {{ p.last_name }}" class="px-2 w-100">
+                                            </td>
+                                            <td>
+                                                <a href="{% url 'update_person' id=p.id%}" class="btn btn-secondary btn-lg" role="button" title="Editar">
+                                                    <i class="fas fa-pen"></i>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="{% url 'delete_person' id=p.id %}" class="btn btn-danger btn-lg" role="button">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            
+                        </div>
+
+                    </div>
                 </div>
+                <div class="row mt-3">
 
+                    
+                        <div class="col-6 d-flex justify-content-center">
+                        
+                            <a name="" id="" class="btn btn-primary btn-lg ml-4 d-flex justify-content-center align-items-center" href="{% url 'person_new' %}" role="button">
+                                Novo Cliente<i class="fas fa-plus pl-2"></i>
+                            </a>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center">
+                            <a href="/logout/" class="btn btn-warning btn-lg d-flex justify-content-center align-items-center" role="button">
+                                Deslogar</i>
+                            </a>
+                    
+                        </div>
+                    
+
+                </div>
             </div>
         </div>
-        <div class="row mt-3">
-
-            
-                <div class="col-6 d-flex justify-content-center">
-                
-                    <a name="" id="" class="btn btn-primary btn-lg ml-4 d-flex justify-content-center align-items-center" href="{% url 'person_new' %}" role="button">
-                        Novo Cliente<i class="fas fa-plus pl-2"></i>
-                    </a>
-                </div>
-                <div class="col-6 d-flex justify-content-center">
-                    <a href="/logout/" class="btn btn-warning btn-lg d-flex justify-content-center align-items-center" role="button">
-                        Deslogar<i class="fas fa-exit"></i>
-                    </a>
-            
-                </div>
-            
-
-        </div>
     </div>
+
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Gestão de Clientes..</span>
+        </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

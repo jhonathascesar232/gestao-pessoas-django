@@ -153,3 +153,8 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/clientes/listar/'
 
 django_heroku.settings(locals())
+
+STATICFILES_DIRS = [
+    # ...
+    'statics',
+]
